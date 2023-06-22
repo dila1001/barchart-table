@@ -1,11 +1,15 @@
 import "./Table.css";
 
-const Table = ({ data }) => {
+const Table = ({ data, sortName, sortArr }) => {
   return (
     <div className="table-grid">
       <div className="table-header">
-        <span>Name</span>
-        <span>Arr</span>
+        <span className="column" onClick={sortName}>
+          Name &#8645;
+        </span>
+        <span className="column" onClick={sortArr}>
+          Arr &#8645;
+        </span>
         <span>Id</span>
       </div>
       {data.map((item) => (

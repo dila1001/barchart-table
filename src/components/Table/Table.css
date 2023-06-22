@@ -21,3 +21,7 @@
   color: #2050fe;
   text-decoration: underline;
 }
+
+.column {
+  cursor: pointer;
+}

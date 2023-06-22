@@ -3,8 +3,11 @@ import "./Customers.css";
 import Table from "../../components/Table/Table";
 
 const Customers = () => {
-  const [data, setData] = useState([]);
+  const [customers, setCustomers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [search, setSearch] = useState("");
+  const [nameIsAscending, setNameIsAscending] = useState(false);
+  const [arrIsAscending, setArrIsAscending] = useState(false);
 
   useEffect(() => {
     fetch(`https://startdeliver-mock-api.glitch.me/customer`)
@@ -15,7 +18,7 @@ const Customers = () => {
           id,
           arr,
         }));
-        setData(finalData);
+        setCustomers(finalData);
         setIsLoading(false);
       })
       .catch((e) => {
@@ -23,10 +26,52 @@ const Customers = () => {
       });
   }, []);
 
+  const sort = (sortBy, ascendingState, setAscendingState) => {
+    const customersArray = [...customers];
+    const sortedCustomersArray = customersArray.sort(function (a, b) {
+      if (a[sortBy] < b[sortBy]) {
+        return ascendingState ? 1 : -1;
+      }
+      if (a[sortBy] > b[sortBy]) {
+        return ascendingState ? -1 : 1;
+      }
+      return 0;
+    });
+    setCustomers(sortedCustomersArray);
+    setAscendingState((prevVal) => !prevVal);
+  };
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+
+  const filteredCustomers = customers.filter((item) => {
+    return item.name.toLowerCase().includes(search);
+  });
+
   return (
     <div className="customers-container">
-      <h2>Customer</h2>
-      {data && !isLoading ? <Table data={data} /> : "Loading..."}
+      <div className="page-header">
+        <h2>Customer</h2>
+        <label>
+          Search:{" "}
+          <input
+            type="text"
+            name="search"
+            value={search}
+            onChange={handleSearch}
+          />
+        </label>
+      </div>
+      {customers && !isLoading ? (
+        <Table
+          data={filteredCustomers}
+          sortName={() => sort("name", nameIsAscending, setNameIsAscending)}
+          sortArr={() => sort("arr", arrIsAscending, setArrIsAscending)}
+        />
+      ) : (
+        "Loading..."
+      )}
     </div>
   );
 };
