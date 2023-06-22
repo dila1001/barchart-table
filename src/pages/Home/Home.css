@@ -1,0 +1,19 @@
+.top-data {
+  display: flex;
+  margin-bottom: 2.5rem;
+}
+
+.data {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.home-container {
+  border-bottom: 1px solid #a4aabd;
+  padding: 0rem 0rem 3rem 0rem;
+}
+
+.result {
+  font-size: 3rem;
+  margin: 0;
+}

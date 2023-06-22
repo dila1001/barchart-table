@@ -1,0 +1,22 @@
+.chart {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.outer-bar {
+  flex-grow: 1;
+}
+
+.bar {
+  background-color: #2050fe;
+  border-radius: 5px 5px 0px 0px;
+  flex-grow: 1;
+}
+
+.month-label {
+  text-transform: uppercase;
+  color: #a4aabd;
+  font-size: 0.8rem;
+}

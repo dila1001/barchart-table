@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.nav {
+  border-bottom: 1px solid #a4aabd;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.2rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin-left: 3rem;
+  padding-bottom: 0.5rem;
+  align-self: flex-end;
+}
+
+.nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav a.active {
+  color: #2050fe;
+  font-weight: bold;
+  border-bottom: 2px solid #2050fe;
+}
+
+.profile {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.profile img {
+  border-radius: 50%;
+}
+
+.info {
+  text-transform: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.role {
+  color: #a4aabd;
+  font-size: 0.7rem;
+}

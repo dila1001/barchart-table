@@ -1,0 +1,23 @@
+.table-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 7fr 3fr 1fr;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #a4aabd;
+  font-size: 0.8rem;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 7fr 3fr 1fr;
+}
+
+.name-column {
+  color: #2050fe;
+  text-decoration: underline;
+}
