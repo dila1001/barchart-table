@@ -6,6 +6,7 @@ const Login = () => {
   const { setIsLoggedIn } = useContext(AuthContext);
   const handleLogin = () => {
     setIsLoggedIn(true);
+    localStorage.setItem("isLoggedIn", true);
   };
 
   return (

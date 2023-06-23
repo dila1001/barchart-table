@@ -6,10 +6,18 @@ import "./App.css";
 import Login from "./pages/Login/Login";
 import { AuthGuard, LoginGuard } from "./Guards";
 import { AuthContext } from "./context/AuthContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  useEffect(() => {
+    const loginData = JSON.parse(localStorage.getItem("isLoggedIn"));
+
+    if (loginData) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
       <div className="container">

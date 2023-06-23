@@ -9,6 +9,7 @@ const Profile = () => {
   const { setIsLoggedIn } = useContext(AuthContext);
   const handleLogout = () => {
     setIsLoggedIn(false);
+    localStorage.setItem("isLoggedIn", false);
   };
   return (
     <div className="dropdown">
