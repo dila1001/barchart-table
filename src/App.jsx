@@ -4,8 +4,8 @@ import Customers from "./pages/Customers/Customers";
 import Home from "./pages/Home/Home";
 import "./App.css";
 import Login from "./pages/Login/Login";
-import { AuthGuard, LoginGuard } from "./Guards";
-import { AuthContext } from "./context/AuthContext";
+import { AuthGuard, LoginGuard } from "./auth/Guards";
+import { AuthContext } from "./auth/AuthContext";
 import { useState } from "react";
 
 function App() {

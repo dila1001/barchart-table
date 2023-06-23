@@ -2,7 +2,7 @@ import Logo from "../../assets/images/logo.png";
 import Avatar from "../../assets/images/avatar.png";
 import "./NavBar.css";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../auth/AuthContext";
 import { useContext } from "react";
 
 const Profile = () => {
