@@ -6,29 +6,23 @@ import "./App.css";
 import Login from "./pages/Login/Login";
 import { AuthGuard, LoginGuard } from "./Guards";
 import { AuthContext } from "./context/AuthContext";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function App() {
-  useEffect(() => {
-    const loginData = JSON.parse(localStorage.getItem("isLoggedIn"));
+  const loginData = JSON.parse(localStorage.getItem("isLoggedIn"));
 
-    if (loginData) {
-      setIsLoggedIn(true);
-    }
-  }, []);
-
-  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(loginData);
   return (
     <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
       <div className="container">
         <Navbar />
         <Routes>
-          <Route element={<LoginGuard />}>
-            <Route path="/" element={<Login />} />
-          </Route>
           <Route element={<AuthGuard />}>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} exact />
             <Route path="/customers" element={<Customers />} />
+          </Route>
+          <Route element={<LoginGuard />}>
+            <Route path="/login" element={<Login />} />
           </Route>
         </Routes>
       </div>

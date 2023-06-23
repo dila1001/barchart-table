@@ -9,10 +9,12 @@ const useAuth = () => {
 
 export const AuthGuard = () => {
   const isAuth = useAuth();
-  return isAuth ? <Outlet /> : <Navigate to="/" />;
+
+  return isAuth ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export const LoginGuard = () => {
   const isAuth = useAuth();
-  return !isAuth ? <Outlet /> : <Navigate to="/home" />;
+
+  return !isAuth ? <Outlet /> : <Navigate to="/" replace />;
 };
